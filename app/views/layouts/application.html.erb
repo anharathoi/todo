@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+      <% if user_signed_in? %>
+       Welcome <%= current_user.email%>&nbsp; | &nbsp;<%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+          
+      <% else %>
+        <%= link_to('Login', new_user_session_path)  %>  
+      <% end %>
+    </nav>
+    <%= yield %>
+  </body>
+</html>
