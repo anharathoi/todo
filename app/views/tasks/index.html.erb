@@ -1,7 +1,7 @@
 <h1>Your Tasks </h1>
 <hr>
 <% @tasks.each_with_index do |task,i| %>
-  <li><%=i+1 %>.&nbsp;<%= task.name %> | <%= link_to 'Delete', task_path(task), method: :delete %> </li>
+  <li><%=i+1 %>.&nbsp;<%= task.name %> | <%= link_to 'Delete', task_path(task), method: :delete %> | <%= link_to 'Edit', task_edit_path(task)%> </li>
 <% end %>
 <button><%= link_to "Add New Task", tasks_new_path  %></button>
 
